@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Credits expect to render empty Credits component 1`] = `ShallowWrapper {}`;

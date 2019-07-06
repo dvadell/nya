@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { setSearchField, requestGatos } from './actions'
+import MainPage from './components/MainPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = state => {
+    return {
+        searchField: state.searchGatos.searchField, // from the reducer
+        gatos: state.requestGatos.gatos,
+        isPending: state.requestGatos.isPending,
+        message: state.requestGatos.message,
+        error: state.requestGatos.error
+    }
 }
 
-export default App;
+const mapDispatchToProps = dispatch  => {
+    return { 
+        onSearchChange: (event)  => dispatch(setSearchField(event.target.value)),
+        onRequestGatos: ()       => dispatch(requestGatos())  
+    }
+}
+
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { view: 'cards' }
+    }
+
+    render() {
+        return <MainPage {...this.props}/>
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

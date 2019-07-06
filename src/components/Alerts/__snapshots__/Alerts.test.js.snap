@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alerts expect to render empty Alerts component 1`] = `ShallowWrapper {}`;

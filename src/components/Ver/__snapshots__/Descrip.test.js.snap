@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`description expect to render Descripción component 1`] = `ShallowWrapper {}`;
+
+exports[`description expect to render empty Descripción component 1`] = `ShallowWrapper {}`;
